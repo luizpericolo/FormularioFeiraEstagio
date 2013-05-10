@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>Inscricao StoneAge</title>
+	</head>
+	<body>
+		<form name="inscricao" method="POST" action="{{ url_cadastrar }}">
+			<table name="formulario">
+				<tr>
+					<td>Nome: </td>
+					<td> <input type="text" name="nome"/> </td>
+				</tr>
+				<tr>
+					<td>Faculdade: </td>
+					<td> <input type="text" name="faculdade" value="UFRJ"/> </td>
+				</tr>	
+				<tr>
+					<td>Curso: </td>
+					<td> <input type="text" name="curso"/> </td>
+				</tr>
+				<tr>
+					<td>Periodo: </td>
+					<td> <input type="number" min="1" max="14" step="1" name="periodo"/> </td>
+				</tr>
+				<tr>	
+					<td>Idade: </td>
+					<td> <input type="number" min="0" max="100" step="1" name="idade"/> </td>
+				</tr>
+				<tr>
+					<td>Telefone: </td>
+					<td> <input type="text" name="telefone"> </td>
+				</tr>
+				<tr>
+					<td>Email: </td>
+					<td> <input type="text" name="email"> </td>
+				</tr>
+			</table>
+			<input type="submit" value="Submeter"/>
+			<input type="reset" value="Limpar"/>
+		</form>
+	</body>
+</html>

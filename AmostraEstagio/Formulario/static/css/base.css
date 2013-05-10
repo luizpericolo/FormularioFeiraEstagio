@@ -1,0 +1,154 @@
+#demos section {
+overflow: hidden;
+}
+.sortable {
+width: 310px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.sortable.grid {
+overflow: hidden;
+}
+.sortable li {
+list-style: none;
+border: 1px solid #CCC;
+background: #F6F6F6;
+color: #1C94C4;
+margin: 5px;
+padding: 5px;
+height: 30px;
+
+
+}
+.sortable.grid li {
+line-height: 80px;
+float: left;
+width: 100px;
+height: 80px;
+text-align: center;
+}
+.handle {
+cursor: move;
+}
+.sortable.connected {
+width: 200px;
+min-height: 100px;
+float: left;
+}
+li.disabled {
+opacity: 0.5;
+}
+li.highlight {
+background: #FEE25F;
+}
+li.sortable-placeholder {
+border: 1px dashed #CCC;
+background: none;
+}
+
+body.formulariostoneage{
+padding-top: 20px;
+padding-bottom: 40px;
+background-color:#00BBE4;
+color:white;
+font-family:"Tahoma";
+font-size:20px;
+}
+
+/* Custom container */
+.container-narrow {
+margin: 0 auto;
+max-width: 700px;
+margin-top: 125px;
+}
+.container-narrow > hr {
+margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+margin: 60px 0;
+text-align: center;
+}
+.jumbotron h1 {
+font-size: 150px;
+line-height: 1;
+}
+.jumbotron h2{
+font-size: 70px;
+line-height: 1;
+}
+.jumbotron h4 {
+font-size: 40px;
+line-height: 1;
+}
+.jumbotron .btn {
+font-size: 21px;
+padding: 14px 24px;
+}
+
+td{
+font-size:28px;
+}
+
+/* Supporting marketing content */
+.marketing {
+margin: 60px 0;
+}
+.marketing p + h4 {
+margin-top: 28px;
+}
+table.center{
+margin-left:auto;
+margin-right:auto;
+}
+
+ul.fancy_ul{
+margin-left:auto;
+margin-right:auto;
+width: 400px;
+}
+
+div.areas_de_interesse
+{
+	width:400px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+}
+
+
+input.checkbox
+{
+	text-align:left;
+	text-align:left;
+	font-size:20px;
+}	
+
+textarea[name='materias_mais_gostou'],
+textarea[name='materias_menos_gostou'],
+textarea[name='materias_melhor_desempenho'],
+textarea[name='atividade_extracurricular'],
+textarea[name='opiniao_aplicacao_relevante'],
+textarea[name='opiniao_evento'],
+textarea[name='opiniao_stand_stoneage']
+{
+	width:500px;
+	height:100px;
+}
+
+div.StoneAgeLogo
+{
+position:absolute;
+}
+img
+{
+	width:250px;
+}
+
+ul.errorlist > li{
+	font-size:12px;
+	color: red;
+}

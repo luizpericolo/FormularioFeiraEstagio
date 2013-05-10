@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Cadastro StoneAge</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{%static 'css/base.css' %}">
+	<link href="{% static 'css/bootstrap.css'%}" type="text/css"  rel="stylesheet">
+    <link href="{% static 'css/bootstrap-responsive.css'%}" type="text/css" rel="stylesheet">
+</head>
+<body class="formulariostoneage">
+	<div class="StoneAgeLogo">
+		<img src="{% static 'images/StoneAge_Logo_01_PB_NEGATIVO600.png'%}">
+	</div>
+	<div class="container-narrow">
+		<div class="jumbotron">
+			<h2> Cadastro efetuado com sucesso! </h2></br></br>
+
+			<form action="" method="POST">
+				{% csrf_token %}
+				
+				<input class="btn btn-warning" type="submit" value="Voltar ao cadastro"/>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

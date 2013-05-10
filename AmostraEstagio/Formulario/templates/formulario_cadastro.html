@@ -1,0 +1,263 @@
+﻿<html>
+<head>
+    <title>Cadastro Stone Age</title>
+	{% load staticfiles %}
+	
+	<script type="text/javascript" src="{% static 'js/jquery-1.9.1.min.js'%}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.sortable.min.js' %}"></script>
+	<script  type="text/javascript" src="{% static 'js/bootstrap.min.js'%}"></script>
+	<script type="text/javascript">
+		function pega_ordem_interesses(){
+			var result = $('#ordem_interesse').sortable('toArray');
+			
+			var optionTexts = []; 
+			
+			$("#ordem_interesse li").each(function(){
+				optionTexts.push($(this).text()) 
+			});
+			
+			//Setting the new value of the 'interesse' value
+			$('#interesse').val(optionTexts.join('|'));
+			
+			//submitting the form
+			document.forms[0].submit();
+		}
+		
+		$(function() {
+				$('.sortable').sortable();
+		});
+		
+	</script>
+	<!--<link href="../static/bootstrap.min.css" rel="stylesheet" media="screen">-->
+	<link rel="stylesheet" type="text/css" href="{%static 'css/base.css' %}">
+	<link href="{% static 'css/bootstrap.css'%}" type="text/css"  rel="stylesheet">
+    <link href="{% static 'css/bootstrap-responsive.css'%}" type="text/css" rel="stylesheet">
+	
+</head>
+<body class="formulariostoneage">
+	<div class="StoneAgeLogo">
+		<img src="{% static 'images/StoneAge_Logo_01_PB_NEGATIVO600.png'%}">
+	</div>
+	
+	<div class="container-narrow">
+		<div class="jumbotron">
+			<h1>Cadastro</h1>
+
+				{% if form.errors %}
+					<p style="color: red;">
+						
+					</p>
+				{% endif %}
+
+				<form action="" method="POST">
+					<div class = "lead">
+						<h4> Dados Pessoais </h4>
+						<table class="center" name="dados_pessoais">
+							<tr>
+								<td>
+									{{form.nome.label}}
+								</td>
+								<td>
+									{{ form.nome }}
+								</td>
+								{% if form.errors.nome %}
+									<td>
+										{{ form.errors.nome }}
+									</td>
+								{% endif %}
+								
+							</tr>
+							
+							<tr>
+								<td>
+									{{form.idade.label}}
+								</td>
+								<td>
+									{{ form.idade }}
+								</td>
+								{% if form.errors.idade %}
+									<td>
+										{{ form.errors.idade }}
+									</td>
+								{% endif %}
+								
+							</tr>
+							
+							<tr>
+								<td>
+									{{ form.faculdade.label }}
+								</td>
+								<td>
+									{{ form.faculdade }}
+								</td>
+								{% if form.errors.faculdade %}
+									<td>
+										{{ form.errors.faculdade }}
+									</td>
+								{% endif %}
+							</tr>
+							
+							<tr>
+								<td>
+									{{ form.curso.label }}
+								</td>
+								<td>
+									{{ form.curso }}
+								</td>
+								{% if form.errors.curso %}
+									<td>
+										{{ form.errors.curso }}
+									</td>
+								{% endif %}
+							</tr>
+							
+							<tr>
+								<td>
+									{{ form.periodo.label }}
+								</td>
+								<td>
+									{{ form.periodo }}
+								</td>
+								{% if form.errors.periodo %}
+									<td>
+										{{ form.errors.periodo }}
+									</td>
+								{% endif %}
+							</tr>
+							
+							<tr>
+								<td>
+									{{ form.telefone.label }}
+								</td>
+								<td>
+									{{ form.telefone }}
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									{{ form.email.label }}
+								</td>
+								<td>
+									{{ form.email }}
+								</td>
+								{% if form.errors.email %}
+									<td>
+										{{ form.errors.email }}
+									</td>
+								{% endif %}
+							</tr>
+							<tr>
+								<td>
+								</td>
+							</tr>
+							
+						</table>
+					</div>
+					<div class = "lead">	
+						<h4> Dados Acadêmicos </h4>
+						Ordene as áreas de acordo com seu interesse(Maior em cima) </br></br>
+						<ul id="ordem_interesse" class="sortable list fancy_ul" >
+							{% for interesse in interesses %}
+								<li> {{ interesse }} </li>
+							{% endfor %}				
+						</ul>
+						
+						Quais são suas áreas de interesse na Stone Age? </br></br>
+						<div class = "areas_de_interesse">
+							{{ form.trabalho_sta_projeto }} {{ form.trabalho_sta_projeto.label }}</br>
+							{{ form.trabalho_sta_des_software }} {{ form.trabalho_sta_des_software.label }}</br>
+							{{ form.trabalho_sta_pesq_des }} {{ form.trabalho_sta_pesq_des.label }}</br>
+							{{ form.trabalho_sta_infra }} {{ form.trabalho_sta_infra.label }}</br></br>
+						</div>
+						
+						{{ form.materias_mais_gostou.label }}</br>
+						{% if form.errors.materias_mais_gostou %}
+							<td>
+								{{ form.errors.materias_mais_gostou }}
+							</td>
+						{% else %}
+							</br>
+						{% endif %}
+						
+						{{ form.materias_mais_gostou }}</br></br>
+						
+						{{ form.materias_menos_gostou.label }}</br>
+						{% if form.errors.materias_menos_gostou %}
+							<td>
+								{{ form.errors.materias_menos_gostou }}
+							</td>
+						{% else %}
+							</br>	
+						{% endif %}
+						
+						{{ form.materias_menos_gostou }}</br></br>
+						
+						{{ form.materias_melhor_desempenho.label }}</br>
+						{% if form.errors.materias_melhor_desempenho %}
+							<td>
+								{{ form.errors.materias_melhor_desempenho }}
+							</td>
+						{% else %}
+							</br>
+						{% endif %}
+						
+						{{ form.materias_melhor_desempenho }}</br></br>
+						
+						{{ form.atividade_extracurricular.label }}</br>
+						{% if form.errors.atividade_extracurricular %}
+							<td>
+								{{ form.errors.atividade_extracurricular }}
+							</td>
+						{% else %}
+							</br>	
+						{% endif %}
+						
+						{{ form.atividade_extracurricular }}</br></br>
+						
+						{{form.opiniao_aplicacao_relevante.label}}</br>
+						{% if form.errors.opiniao_aplicacao_relevante %}
+							<td>
+								{{ form.errors.opiniao_aplicacao_relevante }}
+							</td>
+						{% else %}
+							</br>
+						{% endif %}
+						
+						{{form.opiniao_aplicacao_relevante}}</br></br>
+					</div>
+					<div class = "lead">
+						<h4> Dados do Evento </h4>
+						{{form.opiniao_evento.label }}</br>
+						{% if form.errors.opiniao_evento %}
+							<td>
+								{{ form.errors.opiniao_evento }}
+							</td>
+						{% else %}
+							</br>
+						{% endif %}
+						
+						{{form.opiniao_evento }}</br></br>
+						
+						{{form.opiniao_stand_stoneage.label}}</br>
+						{% if form.errors.opiniao_stand_stoneage %}
+							<td>
+								{{ form.errors.opiniao_stand_stoneage }}
+							</td>
+						{% else %}
+							</br>
+						{% endif %}
+						
+						{{form.opiniao_stand_stoneage}}</br></br>
+								
+					</div>	
+					
+					{% csrf_token %}
+					<input type="hidden" id="interesse" name="interesse" value="800"/>
+					<input class="btn-warning btn" type="button" value="Cadastrar" onClick="pega_ordem_interesses()"/>
+					<!--<input class="btn-primary btn" type="reset"	 value="Limpar"/> -->
+				</form>
+		</div>	
+	</div>
+</body>
+</html>
